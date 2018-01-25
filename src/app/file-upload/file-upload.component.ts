@@ -57,7 +57,7 @@ export class FileUploadComponent {
     this.percentage = this.task.percentageChanges();
     this.snapshot   = this.task.snapshotChanges().pipe(
       tap(snap => {
-        
+        console.log(snap)
         if (snap.bytesTransferred === snap.totalBytes) {
           // Update firestore on completion
           this.db.collection('photos').add( { path, size: snap.totalBytes })
