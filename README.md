@@ -1,6 +1,6 @@
 # Episode 82 - AngularFire Storage Drop Zone
 
-Watch the [screencast]()
+Watch the [AngularFire2 Storage Screencast](https://angularfirebase.com/lessons/firebase-storage-with-angularfire-dropzone-file-uploader/)
 
 ## Usage
 
