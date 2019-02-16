@@ -56,6 +56,8 @@ export class FileUploadComponent {
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
     this.snapshot   = this.task.snapshotChanges().pipe(
+      // The file's download URL
+      finalize(() => this.downloadURL = fileRef.getDownloadURL()),
       tap(snap => {
         console.log(snap)
         if (snap.bytesTransferred === snap.totalBytes) {
@@ -64,10 +66,6 @@ export class FileUploadComponent {
         }
       })
     )
-
-
-    // The file's download URL
-    this.downloadURL = this.task.downloadURL(); 
   }
 
 
