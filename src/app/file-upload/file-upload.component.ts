@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators';
+import { tap, finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -46,6 +46,9 @@ export class FileUploadComponent {
 
     // The storage path
     const path = `test/${new Date().getTime()}_${file.name}`;
+    
+    // file reference
+    const fileRef = this.storage.ref(path);
 
     // Totally optional metadata
     const customMetadata = { app: 'My AngularFire-powered PWA!' };
